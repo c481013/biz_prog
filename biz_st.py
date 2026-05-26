@@ -34,7 +34,7 @@ st.audio("./data/음악.mp3", format="audio/mpeg", loop=True)
 
 '#### :orange[동영상 : st.audio()]'
 # 'rb' : 바이너리 모드로 파일 열기
-video_file = open("./data/구름영상.mp4", "rb")
+video_file = open("./data/흑백영상.mp4", "rb")
 video_bytes = video_file.read()
 
 st.video(video_bytes)
