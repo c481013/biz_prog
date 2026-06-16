@@ -91,7 +91,7 @@ st.set_page_config(page_title="매출 분석 대시보드", layout="wide")
 
 # 상단 배너 이미지 (banner.png 파일을 함께 둘 것)
 # ※ 최신 Streamlit 배포 서버의 규격에 맞게 use_container_width=True를 사용합니다.
-st.image("banner.png", use_container_width=True)
+st.image("banner (1).png", use_container_width=True)
 st.title("지점 매출 분석 대시보드")
 
 QUARTERS = ["1분기", "2분기", "3분기"]
