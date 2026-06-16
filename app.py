@@ -1,12 +1,96 @@
-# app.py -- 지점 매출 분석 대시보드 (화면)
+# app.py -- 지점 매출 분석 대시보드 (통합 버전)
 import streamlit as st
-from utils import (total_sales, average_sales, to_grade, grade_to_incentive,
-                   quarter_average, quarter_top, grade_distribution,
-                   rank_list, achievement_rate)
+
+# =========================================================================
+# 1. 계산용 유틸리티 함수 통합 (기존 utils.py의 내용)
+# =========================================================================
+
+INCENTIVE_TABLE = {"A": 5.0, "B": 4.0, "C": 3.0, "D": 2.0, "F": 0.0}
+
+
+def total_sales(branch):
+    """지점 총매출."""
+    return branch["1분기"] + branch["2분기"] + branch["3분기"]
+
+
+def average_sales(branch):
+    """지점 평균."""
+    return total_sales(branch) / 3
+
+
+def to_grade(avg):
+    """평균을 등급으로 변환."""
+    if avg >= 120:
+        return "A"
+    elif avg >= 100:
+        return "B"
+    elif avg >= 80:
+        return "C"
+    elif avg >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+def grade_to_incentive(grade):
+    """등급을 성과급률로 변환."""
+    return INCENTIVE_TABLE[grade]
+
+
+def quarter_average(branches, quarter):
+    """분기 평균."""
+    if not branches:
+        return 0.0
+    total = 0
+    for b in branches:
+        total += b[quarter]
+    return total / len(branches)
+
+
+def quarter_top(branches, quarter):
+    """분기 최고."""
+    if not branches:
+        return 0
+    top = branches[0][quarter]
+    for b in branches[1:]:
+        if b[quarter] > top:
+            top = b[quarter]
+    return top
+
+
+def grade_distribution(branches):
+    """등급별 지점 수."""
+    dist = {"A": 0, "B": 0, "C": 0, "D": 0, "F": 0}
+    for b in branches:
+        g = to_grade(average_sales(b))
+        dist[g] += 1
+    return dist
+
+
+def rank_list(branches):
+    """총매출 기준 정렬."""
+    return sorted(branches, key=lambda x: total_sales(x), reverse=True)
+
+
+def achievement_rate(branches, target=90):
+    """목표 달성 비율(%)."""
+    if not branches:
+        return 0.0
+    count = 0
+    for b in branches:
+        if average_sales(b) >= target:
+            count += 1
+    return count / len(branches) * 100
+
+
+# =========================================================================
+# 2. 대시보드 화면 구성 (기존 app.py의 내용)
+# =========================================================================
 
 st.set_page_config(page_title="매출 분석 대시보드", layout="wide")
 
 # 상단 배너 이미지 (banner.png 파일을 함께 둘 것)
+# ※ 최신 Streamlit 배포 서버의 규격에 맞게 use_container_width=True를 사용합니다.
 st.image("banner.png", use_container_width=True)
 st.title("지점 매출 분석 대시보드")
 
