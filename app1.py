@@ -361,9 +361,9 @@ with tab_home:
                     if st.button("🗑️ 삭제", key=f"del_btn_home_{item['id']}", use_container_width=True):
                         show_delete_dialog(item['id'], item['name'], item['password'])
         else:
-            st.info("아직 5점 만점의 별점을 받은 가게가 없습니다. 직접 첫 번째 만점 맛집을 등록해 보세요!")
+            st.info("아직 5점 만점의 별점을 받지 못한 식당/카페입니다. 식당/카페 추천 목록 탭에서 확인해 보세요!")
     else:
-        st.info("아직 등록된 가게가 없습니다. 오른쪽 끝의 '✍️ 나만의 추천 등록' 탭에서 추천글을 작성해 보세요!")
+        st.info("아직 등록되지 않은 식당/카페입니다. '✍️ 나의 추천 등록' 탭에서 추천글을 작성해 보세요!")
 
 
 # --- TAB 2: 식당 추천 목록 ---
