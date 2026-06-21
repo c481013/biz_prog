@@ -4,13 +4,10 @@ import io
 import base64
 from PIL import Image
 
-DATA_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data')
-DB_FILE = os.path.join(DATA_DIR, 'hongik_records.db')
+DB_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'hongik_records.db')
 
 def init_db():
-    """데이터 디렉토리를 생성하고 SQLite 데이터베이스 테이블을 초기화합니다."""
-    if not os.path.isdir(DATA_DIR):
-        os.makedirs(DATA_DIR, exist_ok=True)
+    """SQLite 데이터베이스 테이블을 초기화합니다."""
     
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
