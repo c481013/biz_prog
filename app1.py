@@ -17,7 +17,7 @@ database.init_db()
 @st.dialog("🎉 등록 완료")
 def show_registration_success_dialog(name):
     st.markdown(f"<h3 style='color: #1B3A6B; text-align: center; margin-top: 0;'>'{name}' 등록이 완료되었습니다!</h3>", unsafe_allow_html=True)
-    st.write("학우들과 맛있는 추천을 나눠주셔서 감사합니다. 등록된 글은 목록 탭과 홈 탭에서 바로 확인해 보실 수 있습니다!")
+    st.write("소중한 추천 감사합니다. 등록된 글은 목록 탭과 홈 탭에서 바로 확인해 보실 수 있습니다!")
     if st.button("확인", use_container_width=True):
         st.rerun()
 
@@ -473,12 +473,12 @@ with tab_register:
         
         name = st.text_input(
             "가게 이름", 
-            placeholder="상호명을 정확히 입력해 주세요 (예: 상수동 틈새라면)"
+            placeholder="상호명을 정확히 입력해 주세요 (예: 율촌)"
         )
         
         menu = st.text_input(
             "추천 메뉴명", 
-            placeholder="추천하는 베스트 메뉴를 적어주세요 (예: 빨계떡 라면)"
+            placeholder="추천하는 베스트 메뉴를 적어주세요 (예: 닭칼국수)"
         )
         
         price = st.number_input(
@@ -495,12 +495,12 @@ with tab_register:
             max_value=5, 
             value=5, 
             step=1,
-            help="1점: 비추천 / 3점: 평범 / 5점: 대만족 적극 추천!"
+            help="1점: 비추천 / 3점: 평범 / 5점: 적극 추천"
         )
         
         description = st.text_area(
             "식당 특징 및 리뷰", 
-            placeholder="예: 해장용으로 정말 최고입니다! 매운걸 아주 못 드시는 분은 치즈를 꼭 추가하세요. 가게가 다소 협소하니 웨이팅 주의!",
+            placeholder="예: 홍문관 가성비 맛집으로 정말 최고입니다! 국물이 깔끔하고 맛있어요!",
             height=150
         )
         
@@ -512,7 +512,7 @@ with tab_register:
         
         nickname = st.text_input(
             "작성자 닉네임 (선택)", 
-            placeholder="기본값: 홍대생 (예: 컴공과 21학번)",
+            placeholder="기본값: 홍대생 (예: 와우)",
             value="홍대생"
         )
         
