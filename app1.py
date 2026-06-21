@@ -244,7 +244,7 @@ st.markdown("""
 # 캐릭터 이미지를 Base64로 인코딩하여 배너에 삽입
 import os
 mascot_b64 = ""
-mascot_path = os.path.join(os.path.dirname(__file__), 'mascot.png')
+mascot_path = os.path.join(os.path.dirname(__file__), '다운로드.jpg')
 if os.path.exists(mascot_path):
     with open(mascot_path, 'rb') as f:
         mascot_b64 = base64.b64encode(f.read()).decode('utf-8')
