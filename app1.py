@@ -17,7 +17,7 @@ database.init_db()
 @st.dialog("🎉 등록 완료")
 def show_registration_success_dialog(name):
     st.markdown(f"<h3 style='color: #1B3A6B; text-align: center; margin-top: 0;'>'{name}' 등록이 완료되었습니다!</h3>", unsafe_allow_html=True)
-    st.write("소중한 추천 감사합니다. 등록된 글은 목록 탭과 홈 탭에서 바로 확인해 보실 수 있습니다!")
+    st.write("소중한 추천 감사합니다. 등록된 글은 홈에서 바로 확인해 보실 수 있습니다!")
     if st.button("확인", use_container_width=True):
         st.rerun()
 
@@ -255,7 +255,7 @@ st.markdown(f"""
     <img class="header-mascot" src="data:image/png;base64,{mascot_b64}" alt="마스코트">
     <div class="header-text">
         <div class="header-title">🍜 홍대 맛집 추천.zip</div>
-        <div class="header-subtitle">🍕 홍대인들이 집대성한 내돈내산 찐 맛집 데이터베이스 🍰</div>
+        <div class="header-subtitle">🍕 홍대인들이 추천해주는 내돈내산 맛집 리스트 🍰</div>
     </div>
 </div>
 """, unsafe_allow_html=True)
