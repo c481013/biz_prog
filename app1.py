@@ -17,7 +17,7 @@ database.init_db()
 @st.dialog("🎉 등록 완료")
 def show_registration_success_dialog(name):
     st.markdown(f"<h3 style='color: #1B3A6B; text-align: center; margin-top: 0;'>'{name}' 등록이 완료되었습니다!</h3>", unsafe_allow_html=True)
-    st.write("소중한 추천 감사합니다. 등록된 글은 홈에서 바로 확인해 보실 수 있습니다!")
+    st.write("소중한 추천 감사합니다. 등록된 글은 식당/카페 추천 목록 탭에서 바로 확인해 보실 수 있습니다!")
     if st.button("확인", use_container_width=True):
         st.rerun()
 
