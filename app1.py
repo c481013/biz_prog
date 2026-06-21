@@ -272,7 +272,7 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    st.markdown("### 📊 실시간 미식 요약")
+    st.markdown("### 📊 실시간 통계")
     stats = database.get_statistics()
     
     st.markdown(f"""
@@ -311,7 +311,7 @@ tab_home, tab_restaurant, tab_cafe, tab_register = st.tabs([
     "🏠 홈", 
     "🍕 식당 추천 목록", 
     "☕ 카페 추천 목록", 
-    "✍️ 나만의 추천 등록"
+    "✍️ 나의 추천 등록"
 ])
 
 # --- TAB 1: 홈 & 분석 ---
