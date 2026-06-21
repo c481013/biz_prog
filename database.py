@@ -125,11 +125,11 @@ def get_recommendations(category_filter=None, search_query=None, sort_by="최신
         query += " AND category = ?"
         params.append(category_filter)
         
-    # 검색어 필터 (상호명, 추천 메뉴, 특징/한줄평 검색)
+    # 검색어 필터 (상호명 검색으로 한정)
     if search_query:
-        query += " AND (name LIKE ? OR menu LIKE ? OR description LIKE ?)"
+        query += " AND name LIKE ?"
         like_query = f"%{search_query}%"
-        params.extend([like_query, like_query, like_query])
+        params.append(like_query)
         
     # 정렬 방식 적용
     if sort_by == "최신순":

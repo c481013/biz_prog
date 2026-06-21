@@ -4,7 +4,7 @@ import database
 
 # Streamlit 페이지 설정
 st.set_page_config(
-    page_title="홍대생의 맛집 & 카페 가이드",
+    page_title="홍대 맛집 추천.zip",
     page_icon="🍔",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -262,8 +262,7 @@ st.markdown(f"""
 
 # 사이드바 설정 (통계 및 검색 기능 포함)
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #1B3A6B; margin-top: 0;'>🍜 홍대 미식가</h2>", unsafe_allow_html=True)
-    st.markdown("---")
+
     st.markdown("### 🔍 전체 검색 및 정렬")
     search_query = st.text_input("검색어 입력", placeholder="상호명, 메뉴, 한줄평 키워드...")
     
@@ -310,7 +309,7 @@ with st.sidebar:
 # 메인 탭 구성
 tab_home, tab_restaurant, tab_cafe, tab_register = st.tabs([
     "🏠 홈", 
-    "🍕 맛집 추천 목록", 
+    "🍕 식당 추천 목록", 
     "☕ 카페 추천 목록", 
     "✍️ 나만의 추천 등록"
 ])
@@ -367,9 +366,9 @@ with tab_home:
         st.info("아직 등록된 가게가 없습니다. 오른쪽 끝의 '✍️ 나만의 추천 등록' 탭에서 추천글을 작성해 보세요!")
 
 
-# --- TAB 2: 맛집 추천 목록 ---
+# --- TAB 2: 식당 추천 목록 ---
 with tab_restaurant:
-    st.markdown("### 🍕 맛집 추천 목록")
+    st.markdown("### 🍕 식당 추천 목록")
     restaurants = database.get_recommendations(
         category_filter="식당", 
         search_query=search_query, 
